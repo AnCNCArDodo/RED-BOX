@@ -40,22 +40,22 @@ class RocketAnalyzer:
         self.ax.grid(True)
         self.ax.legend()
 
-        # Apogee detection
+        
         apogee_idx = alt.idxmax()
         apogee_time = time.iloc[apogee_idx]
         apogee_alt = alt.iloc[apogee_idx]
         self.ax.scatter(apogee_time, apogee_alt, color='red', s=100, label=f'Apogee {apogee_alt:.1f}m')
         self.ax.legend()
 
-        # Simple parachute deployment detection (negative acceleration after apogee)
+        
         velocity = np.gradient(alt, time)
         accel = np.gradient(velocity, time)
 
-        # Look for large negative acceleration after apogee
+        
         post_apogee = accel[apogee_idx:]
         if len(post_apogee) > 10:
-            drag_idx = apogee_idx + np.argmin(post_apogee[:500])  # first 5 sec after apogee
-            if accel[drag_idx] < -25:  # ~2.5g drag
+            drag_idx = apogee_idx + np.argmin(post_apogee[:500])  
+            if accel[drag_idx] < -25:  
                 self.ax.axvline(time.iloc[drag_idx], color='orange', linestyle='--', label='Drogue Deploy?')
 
         self.canvas.draw()
@@ -63,4 +63,5 @@ class RocketAnalyzer:
 if __name__ == "__main__":
     root = tk.Tk()
     app = RocketAnalyzer(root)
+
     root.mainloop()
