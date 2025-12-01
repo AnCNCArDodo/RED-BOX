@@ -1,15 +1,12 @@
-// Rocket Flight Data Logger - ESP32-C3 + BMP180
-// WiFi AP + Web Server + SPIFFS logging
-
 #include <WiFi.h>
 #include <WebServer.h>
 #include <FS.h>
 #include <SPIFFS.h>
 #include <Wire.h>
-#include <Adafruit_BMP085.h>       // CORRECT LIBRARY
+#include <Adafruit_BMP085.h>       
 #include <Adafruit_Sensor.h>
 
-Adafruit_BMP085 bmp;               // This works now
+Adafruit_BMP085 bmp;               
 
 const char* ssid = "RED-BOX";
 const char* password = "RED-BOX-admin";
@@ -20,7 +17,7 @@ bool logging = false;
 String currentFile = "";
 File logFile;
 unsigned long startTime = 0;
-float seaLevelPressure = 1013.25;  // Update for your location!
+float seaLevelPressure = 1013.25; 
 
 float baselineAlt = 0;
 float maxAlt = 0;
@@ -34,13 +31,12 @@ void setup() {
     return;
   }
 
-  Wire.begin(6, 7); // SDA=6, SCL=7
+  Wire.begin(6, 7); 
   if (!bmp.begin()) {
     Serial.println("BMP180 not found!");
     while (1);
   }
 
-  // Take 50 samples to compute ground altitude
   float altSum = 0;
   for (int i = 0; i < 50; i++) {
     altSum += bmp.readAltitude(seaLevelPressure);
@@ -62,10 +58,10 @@ void loop() {
 
   if (logging && logFile) {
     static unsigned long lastLog = 0;
-    if (millis() - lastLog > 10) {  // ~100 Hz
+    if (millis() - lastLog > 10) { 
       lastLog = millis();
 
-      float pressure = bmp.readPressure() / 100.0F; // hPa
+      float pressure = bmp.readPressure() / 100.0F; 
       float temp = bmp.readTemperature();
       float alt = bmp.readAltitude(seaLevelPressure) - baselineAlt;
       float timestamp = (millis() - startTime) / 1000.0;
@@ -188,7 +184,7 @@ setInterval(() => {
     server.send(303);
   });
 
-  // Serve files
+  
   server.onNotFound([]() {
     if (SPIFFS.exists(server.uri())) {
       File f = SPIFFS.open(server.uri(), "r");
