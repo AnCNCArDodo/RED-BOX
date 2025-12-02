@@ -125,7 +125,7 @@ void setupWebServer() {
 </style>
 </head>
 <body>
-<h1>ESP32-C3 Rocket Logger</h1>
+<h1>RED-BOX</h1>
 <div id="status">Status: <span id="logstat">Stopped</span></div>
 <h2>Altitude: <span id="alt">0.0</span> m | Apogee: <span id="apo">0.0</span> m</h2>
 <button onclick="fetch('/start')">START LOGGING</button>
