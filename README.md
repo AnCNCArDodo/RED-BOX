@@ -10,7 +10,7 @@ for now we have the .ide file for programing in Arduino ide and a phyton app for
   
 <img width="679" height="623" alt="Zrzut ekranu 2025-11-30 191756" src="https://github.com/user-attachments/assets/c5c0716f-d609-4579-9b93-37dfb119ef33" />
 
-<img width="1000" height="1000" alt="image" src="https://github.com/user-attachments/assets/0889c32f-b43e-4a20-880e-afe3aba03865" />
+<img width="2311" height="1849" alt="image" src="https://github.com/user-attachments/assets/56e30856-5ddf-4f54-b88f-e5d0d96a9f17" />
 
 **Setup:**
 -Wire th esp up like shown in the picture 
