@@ -6,6 +6,14 @@ for now we have the .ide file for programing in Arduino ide and a phyton app for
 - Esp 32 c3 Super Mini. Ali link aliexpress.com/item/1005007496189056.html
 - Bmp180 barometer. Ali link aliexpress.com/item/1005008727792256.html
 
+
+| Item              | Description                       | Quantity | Running Total ($ with Tax) | Total  |
+| :-----------------| :---------------------------------| :--------|:---------------------------|:------ |
+| ESP-32 Super mini | The Brain                         |  1       |  2.85 USD                  |~3.0 USD|
+| BMP180 barometer  | A sensor used to calculate height |  1       |          1.77 USD          |~2.0 USD|
+|                   |                                   |          |                            |~5.0 USD|
+
+
 **Wiring:**
   
 <img width="679" height="623" alt="Zrzut ekranu 2025-11-30 191756" src="https://github.com/user-attachments/assets/c5c0716f-d609-4579-9b93-37dfb119ef33" />
